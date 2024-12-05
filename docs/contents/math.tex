@@ -1,0 +1,187 @@
+% !TEX root = ../main.tex
+
+\chapter{数学语言}
+
+\section{数学符号和公式}
+
+\begin{itemize}
+    \item 公式应另起一行居中排版。公式后应注明编号，按章顺序编排，编号右端对齐。
+    \item 公式末尾是需要添加标点符号的，至于用逗号还是句号，取决于公式下面一句是接着公式说的，还是另起一句。
+    \begin{equation}
+  \frac{2h}{\pi}\int_{0}^{\infty}\frac{\sin\left( \omega\delta \right)}{\omega}
+  \cos\left( \omega x \right) \mathrm{d}\omega = 
+  \begin{cases}
+    h, & \left| x \right| < \delta, \\
+    \frac{h}{2}, & x = \pm \delta, \\
+    0, & \left| x \right| > \delta.
+  \end{cases}
+\end{equation}
+    \item 公式较长时最好在等号“$=$”处转行。
+    \begin{align}
+    & I (X_3; X_4) - I (X_3; X_4 \mid X_1) - I (X_3; X_4 \mid X_2) \nonumber \\
+  = & [I (X_3; X_4) - I (X_3; X_4 \mid X_1)] - I (X_3; X_4 \mid \tilde{X}_2) \\
+  = & I (X_1; X_3; X_4) - I (X_3; X_4 \mid \tilde{X}_2).
+\end{align}
+\item 公式较长时最好在等号“$=$”处转行。
+如果在等号处转行难以实现，也可在 $+$、$-$、$\times$、$\div$ 运算符号处转行，转行
+时运算符号仅书写于转行式前，不重复书写。
+\begin{multline}
+  \frac{1}{2} \Delta (f_{ij} f^{ij}) =
+    2 \left(\sum_{i<j} \chi_{ij}(\sigma_{i} - \sigma_{j})^{2}
+    + f^{ij} \nabla_{j} \nabla_{i} (\Delta f) \right. \\
+  \left. + \nabla_{k} f_{ij} \nabla^{k} f^{ij} +
+    f^{ij} f^{k} \left[2\nabla_{i}R_{jk}
+    - \nabla_{k} R_{ij} \right] \vphantom{\sum_{i<j}} \right).
+\end{multline}
+\end{itemize}
+
+
+
+\section{定理环境}
+
+这里举一个“定义”和“定理”的例子。
+
+\begin{definition}[非负整指数索伯列夫空间\cite{ChenPDE}]
+设$\Omega\subset\mathbb{R}^n$是一个给定区域，令$m$为非负整数，$1\leq p\leq \infty$.定义索伯列夫空间$W^{m,p}$为
+$$
+W^{m,p}(\Omega)=\left\{u\in L^p(\Omega): \text{对任意}\alpha\in \mathbb{N}_{0}^n\text{满足 }0\leq |\alpha|\leq m, D^{\alpha}u\in L^p(\Omega) \right\},
+$$
+并装备以范数
+\begin{equation*}
+\begin{aligned}
+\|u\|_{W^{m,p}(\Omega)} &= \left( \sum_{|\alpha|\leq m} \|D^{\alpha}u\|_{L^p(\Omega)}^p \right)^{1/p},\quad 1\leq p <\infty, \label{eq:sobolev-norm}\\
+\|u\|_{W^{m,\infty}(\Omega)} &= \max_{|\alpha|\leq m} \|D^{\alpha}u\|_{L^{\infty}(\Omega)}.
+\end{aligned}
+\end{equation*}
+\end{definition}
+
+
+\begin{theorem}[索伯列夫嵌入定理{\cite{AF2003}}]\label{thm:sobolev-embedding}
+令$\Omega$为$\mathbb{R}^n$上一个有$C^{\infty}$光滑边界的有界区域.令$j\geq 0,m\geq 1$为整数，$1\leq p<\infty$，如下嵌入关系成立：
+\begin{enumerate}
+\item 如果$mp>n>(m-1)p$，则
+$$
+W^{m,p}(\Omega) \hookrightarrow C^{0,s}(\overline{\Omega}), \quad \text{对于 }0<s\leq m-\frac{n}{p}.
+$$
+如果$n=(m-1)p$，则
+$$
+W^{m.p}(\Omega) \hookrightarrow C^{0,s}(\overline{\Omega}), \quad \text{对于 }0<s<1.
+$$
+\item 如果$1\leq k\leq n$，以及$mp=n$，则
+$$
+W^{j+m,p}(\Omega)\hookrightarrow W^{j,q}(\Omega), \quad \text{对于 }p\leq q < \infty.
+$$
+\item 如果$mp<n$，则
+$$
+W^{j+m,p}(\Omega) \hookrightarrow W^{j,q}(\Omega), \quad \text{对于 }p\leq q \leq p^{*}:=\frac{np}{n-mp}.
+$$
+\end{enumerate}
+\end{theorem}
+
+
+
+\section{线性方程的适定性理论}\label{sec:linear-wellposedness}
+本节摘自邹森博士的毕业论文，包含一些数学符号的使用、定理的叙述与证明、数学式的引用。
+
+在这一节中，我们讨论线性薛定谔方程
+\begin{equation}\label{eq:schrodinger-0}
+\left\{\begin{aligned}
+-\Delta u - k^2 u +c(x)u &=F, && x\in\Omega,\\
+u &=f, && x\in\partial\Omega
+\end{aligned}\right.
+\end{equation}
+弱解的适定性，从而定义反问题的观测数据DtN算子.此外，为研究非线性方程的适定性，我们使用了线性亥姆霍兹方程
+\begin{equation}\label{eqn:Helmholtz}
+\left\{\begin{aligned}
+-\Delta u - k^2 u &=F, && x\in\Omega,\\
+u &=f, && x\in\partial\Omega
+\end{aligned}\right.
+\end{equation}
+的强解理论，我们也在本节中加以介绍.这些结论都可以从一般形式椭圆方程的弱解和强解理论导出.为简洁起见，我们首先给出如下定义：我们定义散度型微分算子为
+\begin{equation}\label{eq:divergence-form}
+L:=-\sum_{i=1}^n D_i(a^{ij}(x)D_{j})+c(x).
+\end{equation}
+称散度型微分算子$L$在区域$\Omega$上满足椭圆性条件，如果对于任意$x\in\Omega$，$\xi\in\mathbb{R}^n$，存在常数$\lambda,\Lambda>0$，使得
+\begin{equation}\label{eq:strict-elliptic}
+\lambda |\xi|^2 \leq \sum_{i,j=1}^n a^{ij}(x)\xi_{i}\xi_{j} \leq \Lambda|\xi|^2 .
+\end{equation}
+另外我们定义非散度型微分算子
+\begin{equation}\label{eq:nondivergence-form}
+L=-\sum_{i,j=1}^{n}a^{ij}(x)D_{ij} + c(x).
+\end{equation}
+类似地，对于非散度型微分算子，我们也可以定义其椭圆性条件：对于任意$x\in\Omega$，$\xi\in\mathbb{R}^n$，存在常数$\lambda,\Lambda>0$，使得
+\begin{equation*}
+\lambda |\xi|^2 \leq \sum_{i,j=1}^n a^{ij}(x)\xi_{i}\xi_{j} \leq \Lambda|\xi|^2 .
+\end{equation*}
+对于以上两种形式的微分算子，在后文的讨论中，除非特殊说明，我们假定对于$1\leq i,j\leq n$，有$a^{ij}(x)\in C^{\infty}(\overline{\Omega})$以及$c\in L^{\infty}(\Omega)$.
+
+\subsection{弱解的存在性和连续依赖性}\label{sec:weak-solution}
+
+我们首先叙述一般形式椭圆方程的Dirichlet问题弱解的存在性：
+\begin{theorem}[Dirichlet问题弱解的存在性{\cite{Chen2elliptic}}]\label{thm:weak-solution}
+令$L$为\eqref{eq:divergence-form}中定义的散度型椭圆微分算子，令$\Omega\subset\mathbb{R}^n$为有界开区域，使得Sobolev嵌入定理在其上成立.对于$\mu\in\mathbb{R}$，Dirichlet问题
+\begin{equation}\label{eq:dirichlet-equation}
+\left\{\begin{aligned}
+& Lu+\mu u = F,\\
+& u-g\in H_0^1(\Omega)\end{aligned}\right.
+\end{equation}
+的解有两种情况：
+\begin{enumerate}[(1)]
+\item 对任意$F\in H^{-1}(\Omega)$，$g\in H^{1}(\Omega)$，\eqref{eq:dirichlet-equation}存在唯一弱解$u\in H^1(\Omega)$；
+\item 存在一个非平凡的$u\in H^1_0(\Omega)$使得$Lu+\mu u=0$.
+\end{enumerate}
+更进一步，满足情形(2)的全体$\mu$构成的集合为可数离散的，$\infty$是唯一可能的极限点，我们称这样的$\mu$为$L$算子在$\Omega$上的Dirichlet特征值，记为$\operatorname{Spec}_{\Omega}(L)$，或者简写为$\operatorname{Spec}(L)$.对于每一Dirichlet特征值$\mu$，其对应的特征函数空间是有限维的.
+\end{theorem}
+
+如果增加$c\geq 0$几乎处处成立的假设条件，有如下结论：
+\begin{theorem}[Dirichlet问题的$H^1$弱解{\cite{Chen2elliptic}}]\label{thm:regularity}
+令$L$为\eqref{eq:divergence-form}中定义的散度型椭圆微分算子，令$\Omega\subset\mathbb{R}^n$为有界开区域，使得其上成立索伯列夫嵌入定理.进一步假设$c\geq 0$几乎处处成立.对于任意$F\in H^{-1}(\Omega)$和$g\in H^1(\Omega)$，Dirichlet问题
+\begin{equation}
+\left\{\begin{aligned}
+&Lu = F, \\
+& u-g\in H^{1}_{0}(\Omega)
+\end{aligned}\right.
+\end{equation}
+存在唯一弱解，而且满足估计式
+\begin{equation}
+\|u\|_{H^1_0(\Omega)} \leq C\left(\|F\|_{H^{-1}(\Omega)} +\|g\|_{H^1(\Omega)} \right),
+\end{equation}
+其中常数$C$与$F$和$g$无关.
+\end{theorem}
+
+在\eqref{eq:schrodinger-0}中我们仅假设$c\in L^{\infty}(\Omega)$，不满足定理\ref{thm:regularity}中$c\geq 0$几乎处处成立的条件，但是通过避开特征值的假设，我们依然可以利用定理\ref{thm:weak-solution}和定理\ref{thm:regularity}得到\eqref{eq:schrodinger-0}弱解的适定性结论：
+\begin{corollary}[线性薛定谔方程\eqref{eq:schrodinger-0}的适定性]\label{cor:Schrodinger-weak-solution}
+令$\Omega\subset\mathbb{R}^n$为带$C^1$边界的有界开区域.如果$k^2$不是$-\Delta+c$在$\Omega$上的Dirichlet特征值，则对于任意$F\in H^{-1}(\Omega)$，$f\in H^{1/2}(\partial\Omega)$，Dirichlet问题\eqref{eq:schrodinger-0}存在唯一解$u\in H^1(\Omega)$，且满足估计式
+\begin{equation}\label{eq:regularity-weak-solution}
+\|u\|_{H^1(\Omega)} \leq C\left(\|F\|_{H^{-1}(\Omega)} +\|f\|_{H^{1/2}(\partial\Omega)} \right),
+\end{equation}
+其中常数$C$仅仅依赖于$k,c$和$\Omega$.
+\end{corollary}
+注意到当$c(x)\equiv 0$时，上述推论依然成立，因此我们也可以得到\eqref{eqn:Helmholtz}的适定性.
+
+\begin{proof}
+根据定理\ref{thm:weak-solution}，由于$k^2$不是$-\Delta+c$在$\Omega$上的Dirichlet特征值，故我们可以得到$u$的存在唯一性.现在我们证明弱解$u$满足\eqref{eq:regularity-weak-solution}.不失一般性，我们只考虑齐次边界条件$f=0$的情形.
+
+由于$c\in L^{\infty}(\Omega)$，故存在常数$s\in\mathbb{R}$，使得$c(x)+s\leq 0$对于$x\in\Omega$几乎处处成立.我们记$L:=-\Delta +c$，$L_{s}=-\Delta +s +c$.令定理\ref{thm:regularity}中$g\equiv 0$，我们可以得到$L_{s}$为$H_{0}^1(\Omega)\rightarrow H^{-1}(\Omega)$的有界线性算子，且存在连续的逆算子$L_{s}^{-1}:H^{-1}(\Omega)\rightarrow H^{1}_0(\Omega)$.对于$s$使得$k^2+s\ne 0$,我们记$\sigma=(k^2+s)^{-1}$，则对于$u\in H^{1}_0(\Omega)$有如下等价形式
+\begin{equation}\label{eq:eu0}
+Lu=k^2 u +F \quad \Leftrightarrow \quad L_{s} u = (k^2+s)j\circ i(u) + F
+\quad \Leftrightarrow \quad (\sigma I-K)(i(u)) = \sigma i L_s^{-1}F
+\end{equation}
+其中$i: H^{1}_0(\Omega)\rightarrow L^2(\Omega)$，$j:L^2(\Omega)\rightarrow H^{-1}(\Omega)$为自然的包含映射，$K:=i\circ L_s^{-1} \circ j$.
+
+由于我们假设$k^2\notin\operatorname{Spec}(-\Delta+c)$，根据定理\ref{thm:regularity}的证明过程，$K$为紧自伴算子{\cite{Chen2elliptic}}.故我们可以取得$s$使得$\sigma\notin\operatorname{Spec}(K)$，此时$\sigma I-K$为$L^2(\Omega)\rightarrow L^2(\Omega)$的可逆线性算子.也就是说，对于任意$F\in H^{-1}(\Omega)$，存在$\tilde{u}\in L^2(\Omega)$，使得
+\begin{equation}\label{eq:eu1}
+(\sigma I-K)\tilde{u} = \sigma i L_s^{-1}F.
+\end{equation}
+结合\eqref{eq:eu0}和\eqref{eq:eu1}我们可以得出存在$u\in H^{1}_0(\Omega)$使得$\tilde{u}=i(u)$.根据定理\ref{thm:regularity}以及$\sigma I-K$和$L_{s}$的可逆性，我们有
+\begin{equation*}
+\begin{aligned}
+\|u\|_{H^1(\Omega)} &\leq C\left( \left\|(k^2+s) j(\tilde{u})\right\|_{H^{-1}(\Omega)} + \|F\|_{H^{-1}(\Omega)} \right)\\
+&\leq C\left( \|\tilde{u}\|_{L^2(\Omega)} + \|F\|_{H^{-1}(\Omega)} \right)\\
+& \leq C\left( \left\|\sigma(\sigma I-K)^{-1}\circ i\circ L^{-1}_s F\right\|_{L^2(\Omega)} + \|F\|_{H^{-1}(\Omega)} \right)\\
+& \leq C\|F\|_{H^{-1}(\Omega)}.
+\end{aligned}
+\end{equation*}
+
+对于非齐次边界条件的情况，即$f\ne 0$，我们可以对$w=u-Ef$应用以上过程得到\eqref{eq:regularity-weak-solution}，其中$E$为$\operatorname{Tr}:H^{1}(\Omega)\rightarrow H^{1/2}(\partial\Omega)$的右逆算子.
+\end{proof}

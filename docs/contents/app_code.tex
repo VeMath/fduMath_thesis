@@ -1,0 +1,20 @@
+% !TeX root = ../main.tex
+\chapter{代码}
+\section{代码环境}
+我们可以在论文中插入算法，但是不建议插入大段的代码。如果确实需要插入代码，建议使用listings宏包。
+\begin{codeblock}[language=MATLAB]
+x = [1, 2, 3, 4, 5]';
+y = [2, 4, 6, 8, 10]';
+theta = [0; 0];
+learning_rate = 0.01;
+num_iterations = 100;
+
+for iter = 1:num_iterations
+    idx = randi(length(x));
+    x_i = x(idx);
+    y_i = y(idx);
+    grad = [x_i, 1]' * (theta' * [x_i, 1]' - y_i);
+    theta = theta - learning_rate * grad;
+end
+fprintf('theta1: %f, theta0: %f\n', theta(1), theta(2));
+\end{codeblock}
