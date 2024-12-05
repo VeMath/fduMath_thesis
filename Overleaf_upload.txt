@@ -1,2 +1,0 @@
-1. Please upload the zip file directly to the overleaf system.
-2. Choose at the 'Menu' to 'XeLaTex' and Recompile the 'main.tex' in the 'docs' folder.
