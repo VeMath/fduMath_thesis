@@ -1,0 +1,104 @@
+%*********************************************************************
+% fduMaththesis: 复旦大学数学科学学院博士毕业论文 LaTeX 模版
+% 模版基于开源项目 by 曾祥东（https://github.com/stone-zeng/fduthesis）开发, 
+% 部分内容摘自数学科学学院2023年毕业生邹森博士的毕业论文。
+% 该模版旨在帮助复旦大学数学科学学院的博士研究生规范撰写毕业论文，符合学院的格式要求。
+% 
+% 注：
+%   1. 请确保使用 UTF-8 编码保存
+%   2. 请使用 XeLaTeX 或 LuaLaTeX 编译
+%   3. 请阅读说明文档<复旦数学科学学院博士毕业论文LaTeX模版使用说明>，细节设置可参考<源项目说明文档>以及源项目github地址。
+%*********************************************************************
+\documentclass[type=doctor]{fduthesis}
+
+\input{setup}
+
+
+
+\begin{document}
+
+% 前置部分包含目录、中英文摘要以及符号表等
+\frontmatter
+
+% 目录
+\tableofcontents
+
+% 插图索引
+%\listoffigures*
+% 表格索引
+%\listoftables*
+% 算法索引
+%\listofalgorithms*
+
+% 插图目录
+\listoffigures
+
+\input{contents/abstract}
+
+% 符号表
+% 语法与 LaTeX 表格一致：列用 & 区分，行用 \\ 区分
+% 如需修改格式，可以使用可选参数：
+%   \begin{notation}[ll]
+%     $x$ & 坐标 \\
+%     $p$ & 动量
+%   \end{notation}
+% 可选参数与 LaTeX 标准表格的列格式说明语法一致
+% 这里的 “ll” 表示两列均为自动宽度，并且左对齐
+\begin{notation}[ll]
+  $u$                  & 标量值函数        \\
+  $\boldsymbol{u}$        & 向量值函数        \\
+  $\mathcal{K}$            & 算子 \\
+  $[A,B]:=AB-BA$      & 交换子 \\
+  $\boldsymbol{A}$        & 系数矩阵     \\
+  $\mathbb{A}$        & 系数张量     \\
+\end{notation}
+
+\mainmatter
+% 建议采用多文件编译的方式
+% 比较好的做法是把每一章放进一个单独的 tex 文件里，并在这里用 \include 导入，例如
+%   \include{chapter1}
+%   \include{chapter2}
+%   \include{chapter3}
+
+\input{contents/intro}
+
+\input{contents/math}
+
+\input{contents/figtab}
+
+
+
+% 附录
+\appendix
+\input{contents/app_code}
+
+
+% 结尾部分
+\backmatter
+
+% 用于盲审的论文需隐去致谢、发表论文、科研成果、
+
+
+
+% 打印参考文献列表
+\printbibliography
+\renewcommand{\bibname}{参考文献}
+
+\begin{acknowledgements}
+  致谢
+\end{acknowledgements}
+
+
+% 发表论文及科研成果
+\chapter*{攻读学位期间研究成果}
+\addcontentsline{toc}{chapter}{\normalfont \sffamily 攻读学位期间研究成果}
+\begin{enumerate}
+\item Authors. Title. \textit{Journal Name}, xx(x),2022: xxx–xxx,
+\item Authors. Title. Submitted to \textit{Journal Name}, arXiv: xxxxxx, 2022,
+\end{enumerate}
+\end{document}
+
+
+
+
+
