@@ -1,0 +1,44 @@
+\chapter{简介}
+复旦大学数学科学学院博士毕业论文 LaTeX 模版基于开源模版fduthesis开发by 曾祥东\footnote{https://github.com/stone-zeng/fduthesis}，我们对他表示感谢。本模板的第一版由复旦大学数学科学学院2021级罗心悦整理完成，目前为迭代的第二版模板，由2019级冯典在第一版的基础上进行了更新。关于模板更新的内容，我们将在下文详细指出。部分内容摘自复旦大学数学科学学院2023年毕业生邹森博士的毕业论文。说明性文字参考了上海交通大学学位论文模版\footnote{https://github.com/sjtug/SJTUThesis}。 
+
+本模板依然在持续的迭代更新中，学院每学年将在官网\footnote{https://math.fudan.edu.cn/c1/39/c30396a639289/page.htm}提供一次大的更新，随时迭代更新的版本请跳转\href{https://github.com/VeMath/fduMath_thesis/tree/v1.0.0}{{\color{red} github仓库}}\footnote{https://github.com/VeMath/fduMath\_thesis/tree/v1.0.0}。
+欢迎大家指出模板的不足之处，有任何意见与建议可以在github仓库中提交issue或者联系维护管理员罗心悦：xinyueluo21@m.fudan.edu.cn和张晨阳：24110180062@m.fudan.edu.cn。
+
+
+该模版旨在帮助复旦大学数学科学学院的博士研究生规范撰写毕业论文，符合学院的格式要求，更多细节可以参考《复旦数学科学学院博士毕业论文\LaTeX{}模版使用说明》。
+
+\section{更新说明}
+这一节将给出与上一节的差别，其中对于模板本身的更改仅需了解。对于论文书写比较关键的更改，我们将会用{\color{blue} 蓝色}进行标注。
+\subsection{关于引用}
+
+事实上，如果使用\textbackslash cite命令，我们将发现引用的上标会出现在文字的右上角，比如文献\cite{ChenPDE}。{\color{blue} 我们在setup.tex文件中对引用命令进行了重写，如有需求，请使用\textbackslash mycite命令，比如文献\mycite{ChenPDE}。}
+
+\textbf{如果有更好的解决办法，欢迎大家与我们联系。}
+
+\subsection{关于页码位置}
+
+第一版中的页码出现在每一页的正下方，我们对此进行了调整，现在的页码位置分奇偶，奇数页出现在右下角，而偶数页出现在左下角。
+
+目前模板默认的方式是奇数页在右下角，偶数页在左下角。如果确实需要修改回居中格式，可在文件setup.tex中进行修改。
+只需将setup.tex中对应代码片段的LE,RO更改为C即可。
+
+奇数页右下角，偶数页左下角：
+\begin{codeblock}
+\fancyfoot [LE,RO] { \thepage }
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[LE,RO]{\thepage} 
+}
+\end{codeblock}
+
+页码居中：
+\begin{codeblock}
+\fancyfoot [C] {  \thepage }
+\fancypagestyle{plain}{
+    \fancyhf{}
+    \fancyfoot[C]{\thepage} 
+}
+\end{codeblock}
+
+\subsection{关于目录索引颜色}
+我们新增了一种超链接的颜色，这使得原先红色的目录及索引，以黑色的形式呈现。
