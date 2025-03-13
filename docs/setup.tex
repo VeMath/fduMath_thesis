@@ -1,10 +1,43 @@
 % !TEX root = ./main.tex
 
 \fdusetup{
-	style = {font-size = -4,
-			bib-backend =bibtex,
-            bib-resource = {main.bib},
-			bib-style = numerical
+	style = {
+		% font = times,
+		% 西文字体（包括数学字体）
+		%   font = garamond|libertinus|lm|palatino|times|times*|none
+		%
+		% cjk-font = fandol,
+		% 中文字体
+		%   cjk-font = adobe|fandol|founder|mac|sinotype|sourcehan|windows|none
+		font-size = -4,
+		hyperlink = none,
+		% 超链接样式
+		%   hyperlink = border|color|none
+		bib-backend = bibtex,
+		% 参考文献支持方式
+		% 允许选项：
+		%   bib-backend = bibtex|biblatex
+		bib-resource = {main.bib},
+		% 参考文献数据源
+		% 可以是单个文件，也可以是用英文逗号 “,” 隔开的一组文件
+		% 如果使用 biblatex，则必须明确给出 .bib 后缀名
+		bib-style = numerical,
+		% 参考文献样式
+		% 允许选项：
+		%   bib-style = author-year|numerical|<其他样式>
+		% 说明：
+		%   author-year  著者—出版年制
+		%   numerical    顺序编码制
+		%   <其他样式>   使用其他 .bst（bibtex）或 .bbx（biblatex）格式文件
+		%
+		% cite-style = {},
+		% 引用样式
+		% 默认为空，即与参考文献样式保持一致
+		% 仅适用于 biblatex；如要填写，需保证相应的 .cbx 格式文件能被调用
+		%
+		% declaration-page = {declaration.pdf},
+		% 插入扫描版的声明页 PDF 文档
+		% 默认使用预定义的声明页，但不带签名
    },
 	info = {
 		title = {论文题目},
@@ -14,12 +47,16 @@
 		supervisor = {某\quad 某\quad 教~授},
 		department = {数学科学学院},
 		major = {计算数学},
+		degree = academic,
+		% 学位类型：
+		%   degree = academic|professional
 		student-id = {10010101010},
+		% date = {2023 年 1 月 1 日},
+		% 默认为编译日期
 		instructors = {{某\quad 某\quad 教~授},{某\quad 某\quad 教~授},{某某某\quad 教~授}},
 		keywords = {关键词1, 关键词2, 关键词3, 关键词4},
 		keywords* = {KeyWords1, KeyWords2, KeyWords3, KeyWords4},
 		clc = {O24},
-		%date = {2024年1月1日}
 	}
 }
 
@@ -95,24 +132,6 @@
 % 超链接
 \usepackage{xcolor}
 \usepackage{hyperref}
-\hypersetup{
-    colorlinks=true, % 启用彩色链接
-    linkcolor=black,  % 普通内部链接的颜色
-    citecolor=black,  % 引用链接的颜色
-    filecolor=black,  % 打开本地文件的链接颜色
-    urlcolor=black    % 链接到URL的颜色
-}
-
-% 确保在导言区后期再重新设置一次
-\AtEndPreamble{%
-    \hypersetup{
-        colorlinks=true,     % 启用彩色链接
-        linkcolor=black,     % 普通内部链接的颜色
-        citecolor=black,     % 引用链接的颜色
-        filecolor=black,     % 本地文件的链接颜色
-        urlcolor=black,      % URL 链接的颜色
-    }
-}
 
 % 页码显示
 \usepackage{fancyhdr}
