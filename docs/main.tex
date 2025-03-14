@@ -9,6 +9,12 @@
 %   2. 请使用 XeLaTeX 或 LuaLaTeX 编译
 %   3. 请阅读说明文档<复旦数学科学学院研究生毕业论文LaTeX模版使用说明>，细节设置可参考<源项目说明文档>以及源项目github地址。
 %*********************************************************************
+%让参考文献按author-year排序
+\PassOptionsToPackage{
+  sorting=gb7714-2015,
+  gblanorder=chineseahead,
+  sortlocale=zh__pinyin
+}{biblatex}
 \documentclass[type=doctor]{fduthesis}
 % 模板选项：
 %   type = doctor|master|bachelor  论文类型，默认为本科论文
