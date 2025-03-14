@@ -134,13 +134,13 @@
 \usepackage{hyperref}
 
 % 页码显示
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-\fancyhf{} 
-\fancyfoot[LE,RO]{\thepage} 
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+\fancyfoot{} 
+\fancyfoot[EL,OR]{\small\thepage} 
 \fancypagestyle{plain}{
-    \fancyhf{}
-    \fancyfoot[LE,RO]{\thepage} 
+    \fancyfoot{}
+    \fancyfoot[EL,OR]{\small\thepage} 
 }
 % `L`, `C`, `R`分别对应左、中、右，`E`, `O`对应偶数页和奇数页
 
