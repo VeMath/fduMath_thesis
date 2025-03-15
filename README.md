@@ -6,7 +6,8 @@
 
 1. 下载模版文件：从数学科学学院官网下载文件"fduMaththesis.zip"
 2. 编写论文内容：使用TeX编辑器打开主文件main.tex，根据自己的需要修改论文的标题、作者、摘要、章节内容等
-3. 编译生成论文：使用LaTeX编译引擎（如XeLaTeX或pdfLaTeX）编译主文件main.tex，生成PDF格式的论文
+3. 编译生成论文：使用LaTeX编译引擎（XeLaTeX或LuaLaTeX）编译主文件main.tex，生成PDF格式的论文
+	注：对于本地编译，在使用biblatex处理文献时，一般需要按`xelatex->biber->xelatex->xelatex`的流程进行完整编译
 4. 查看论文结果：编译成功后，会生成论文的PDF文件，可以使用PDF阅读器查看和检查论文的格式和内容
 
 ## 问题与解决方案更新
