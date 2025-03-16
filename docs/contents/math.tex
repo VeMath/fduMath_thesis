@@ -41,7 +41,7 @@
 
 这里举一个“定义”和“定理”的例子。
 
-\begin{definition}[非负整指数索伯列夫空间\mycite{ChenPDE}]
+\begin{definition}[非负整指数索伯列夫空间\parencite{ChenPDE}]
 设$\Omega\subset\mathbb{R}^n$是一个给定区域，令$m$为非负整数，$1\leq p\leq \infty$.定义索伯列夫空间$W^{m,p}$为
 $$
 W^{m,p}(\Omega)=\left\{u\in L^p(\Omega): \text{对任意}\alpha\in \mathbb{N}_{0}^n\text{满足 }0\leq |\alpha|\leq m, D^{\alpha}u\in L^p(\Omega) \right\},
@@ -56,7 +56,7 @@ $$
 \end{definition}
 
 
-\begin{theorem}[索伯列夫嵌入定理{\mycite{AF2003}}]\label{thm:sobolev-embedding}
+\begin{theorem}[索伯列夫嵌入定理{\parencite{AF2003}}]\label{thm:sobolev-embedding}
 令$\Omega$为$\mathbb{R}^n$上一个有$C^{\infty}$光滑边界的有界区域.令$j\geq 0,m\geq 1$为整数，$1\leq p<\infty$，如下嵌入关系成立：
 \begin{enumerate}
 \item 如果$mp>n>(m-1)p$，则
@@ -118,7 +118,7 @@ L=-\sum_{i,j=1}^{n}a^{ij}(x)D_{ij} + c(x).
 \subsection{弱解的存在性和连续依赖性}\label{sec:weak-solution}
 
 我们首先叙述一般形式椭圆方程的Dirichlet问题弱解的存在性：
-\begin{theorem}[Dirichlet问题弱解的存在性{\mycite{Chen2elliptic}}]\label{thm:weak-solution}
+\begin{theorem}[Dirichlet问题弱解的存在性{\parencite{Chen2elliptic}}]\label{thm:weak-solution}
 令$L$为\eqref{eq:divergence-form}中定义的散度型椭圆微分算子，令$\Omega\subset\mathbb{R}^n$为有界开区域，使得Sobolev嵌入定理在其上成立.对于$\mu\in\mathbb{R}$，Dirichlet问题
 \begin{equation}\label{eq:dirichlet-equation}
 \left\{\begin{aligned}
@@ -134,7 +134,7 @@ L=-\sum_{i,j=1}^{n}a^{ij}(x)D_{ij} + c(x).
 \end{theorem}
 
 如果增加$c\geq 0$几乎处处成立的假设条件，有如下结论：
-\begin{theorem}[Dirichlet问题的$H^1$弱解{\mycite{Chen2elliptic}}]\label{thm:regularity}
+\begin{theorem}[Dirichlet问题的$H^1$弱解{\parencite{Chen2elliptic}}]\label{thm:regularity}
 令$L$为\eqref{eq:divergence-form}中定义的散度型椭圆微分算子，令$\Omega\subset\mathbb{R}^n$为有界开区域，使得其上成立索伯列夫嵌入定理.进一步假设$c\geq 0$几乎处处成立.对于任意$F\in H^{-1}(\Omega)$和$g\in H^1(\Omega)$，Dirichlet问题
 \begin{equation}
 \left\{\begin{aligned}
@@ -169,7 +169,7 @@ Lu=k^2 u +F \quad \Leftrightarrow \quad L_{s} u = (k^2+s)j\circ i(u) + F
 \end{equation}
 其中$i: H^{1}_0(\Omega)\rightarrow L^2(\Omega)$，$j:L^2(\Omega)\rightarrow H^{-1}(\Omega)$为自然的包含映射，$K:=i\circ L_s^{-1} \circ j$.
 
-由于我们假设$k^2\notin\operatorname{Spec}(-\Delta+c)$，根据定理\ref{thm:regularity}的证明过程，$K$为紧自伴算子{\mycite{Chen2elliptic}}.故我们可以取得$s$使得$\sigma\notin\operatorname{Spec}(K)$，此时$\sigma I-K$为$L^2(\Omega)\rightarrow L^2(\Omega)$的可逆线性算子.也就是说，对于任意$F\in H^{-1}(\Omega)$，存在$\tilde{u}\in L^2(\Omega)$，使得
+由于我们假设$k^2\notin\operatorname{Spec}(-\Delta+c)$，根据定理\ref{thm:regularity}的证明过程，$K$为紧自伴算子{\parencite{Chen2elliptic}}.故我们可以取得$s$使得$\sigma\notin\operatorname{Spec}(K)$，此时$\sigma I-K$为$L^2(\Omega)\rightarrow L^2(\Omega)$的可逆线性算子.也就是说，对于任意$F\in H^{-1}(\Omega)$，存在$\tilde{u}\in L^2(\Omega)$，使得
 \begin{equation}\label{eq:eu1}
 (\sigma I-K)\tilde{u} = \sigma i L_s^{-1}F.
 \end{equation}
